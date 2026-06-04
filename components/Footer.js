@@ -47,10 +47,6 @@ const Footer = () => {
             SARCASTIC GEEKS
           </motion.h1>
         </div>
-        
-        <div className={styles.bottom}>
-          <p>© 2026, Sarcastic Geeks Trybe.</p>
-        </div>
       </div>
     </footer>
   );

@@ -570,7 +570,7 @@ export const Component = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="flex flex-col items-center pointer-events-auto"
+          className="flex flex-col items-center pointer-events-auto bg-[#0F172A]/40 backdrop-blur-[2px] p-8 md:p-12 rounded-[2rem] border border-white/5"
         >
           <div className="mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE] animate-pulse"></span>
@@ -578,7 +578,8 @@ export const Component = () => {
           </div>
 
           <h1 ref={titleRef} className="hero-title text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.1] max-w-5xl">
-            Localizing LinkedIn: <span className="italic font-serif text-[#A855F7]">Join Sarcastic Geeks Trybe</span>
+            Localizing LinkedIn: <br />
+            <span className="italic font-serif text-[#A855F7] drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">Join Sarcastic Geeks Trybe</span>
           </h1>
           
           <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle text-center mt-8 space-y-4 max-w-3xl">
