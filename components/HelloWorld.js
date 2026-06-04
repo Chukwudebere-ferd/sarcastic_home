@@ -41,7 +41,7 @@ const HelloWorld = () => {
               </div>
             </div>
             <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34, 211, 238, 0.3)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(168, 85, 247, 0.4)" }}
               whileTap={{ scale: 0.95 }}
               className={`${styles.cta} clipped-corner`}
             >

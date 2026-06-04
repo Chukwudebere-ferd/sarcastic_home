@@ -53,12 +53,19 @@
 }
 
 .cta {
-  background: var(--neon-cyan);
-  color: var(--deep-black);
+  background: var(--primary-purple);
+  color: var(--pure-white);
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
   font-weight: 700;
   transition: var(--transition);
+  border: 1px solid var(--electric-purple);
+}
+
+.cta:hover {
+  background: var(--electric-purple);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+  transform: translateY(-2px);
 }
 
 .terminal {
