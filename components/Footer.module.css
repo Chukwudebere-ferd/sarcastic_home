@@ -1,21 +1,22 @@
 .footer {
-  padding: 80px 0 40px;
-  margin-top: 120px;
+  padding: 8rem 2rem 4rem;
+  background: var(--deep-black);
+  position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--glass-border);
-  background: rgba(15, 23, 42, 0.8);
 }
 
 .container {
   max-width: 1200px;
-  width: 90%;
   margin: 0 auto;
 }
 
 .top {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 80px;
-  gap: 60px;
+  margin-bottom: 6rem;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
 
 .brand {
@@ -23,38 +24,42 @@
 }
 
 .logo {
-  font-size: 2rem;
-  margin-bottom: 12px;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--pure-white);
 }
 
 .tagline {
-  font-size: 0.9rem;
-  opacity: 0.5;
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  color: var(--foreground);
+  opacity: 0.85;
 }
 
 .linksGrid {
-  display: flex;
-  gap: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
 }
 
 .column h4 {
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--pure-white);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 24px;
-  color: var(--electric-purple);
+  letter-spacing: 0.05em;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .column a {
-  font-size: 0.9rem;
-  opacity: 0.6;
+  font-size: 1rem;
+  color: var(--foreground);
+  opacity: 0.7;
 }
 
 .column a:hover {
@@ -62,24 +67,54 @@
   color: var(--neon-cyan);
 }
 
-.bottom {
-  padding-top: 40px;
-  border-top: 1px solid var(--glass-border);
+.displayTextWrapper {
+  margin: 4rem 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
-  opacity: 0.4;
+  pointer-events: none;
 }
 
-@media (max-width: 992px) {
+.displayText {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  color: var(--pure-white);
+  opacity: 0.1;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  line-height: 0.8;
+  cursor: default;
+  pointer-events: auto;
+  user-select: none;
+  transition: opacity 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.bottom {
+  padding-top: 4rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom p {
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
   .top {
     flex-direction: column;
-    gap: 60px;
   }
   
   .linksGrid {
-    gap: 40px;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .displayText {
+    font-size: 12vw;
   }
 }

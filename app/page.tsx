@@ -2,7 +2,6 @@
 
 import { DemoOne } from '@/components/ui/demo';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import HelloWorld from '../components/HelloWorld';
 import HowItWorks from '../components/HowItWorks';
@@ -16,11 +15,10 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex flex-col w-full">
-        {/* New 3D Horizon Hero Section */}
+        {/* Cinematic 3D Hero Section */}
         <DemoOne />
         
         {/* Existing Content */}
-        <Hero />
         <Stats />
         <HelloWorld />
         <HowItWorks />

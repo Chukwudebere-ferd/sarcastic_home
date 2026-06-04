@@ -34,22 +34,38 @@ const ValueProps = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.header}
+        >
+          <h2 className={styles.title}>What You <span className="serif">Get.</span></h2>
+        </motion.div>
         <div className={styles.grid}>
           {/* Main Large Card for Cowries */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`${styles.mainCard} glass neon-glow`}
+            className={`${styles.mainCard} glass`}
           >
             <div className={styles.coinContainer}>
               <motion.div 
-                animate={{ rotateY: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                animate={{ 
+                  rotateY: [0, 360],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  rotateY: { duration: 5, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                }}
                 className={styles.coin}
               >
-                C
+                <div className={styles.coinFront}>C</div>
+                <div className={styles.coinBack}>C</div>
               </motion.div>
+              <div className={styles.coinShadow} />
             </div>
             <h2 className={styles.mainTitle}>Cowrie-Backed Applications</h2>
             <p className={styles.mainDescription}>
@@ -68,6 +84,7 @@ const ValueProps = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
+                whileHover={{ x: 5, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
                 className={`${styles.benefitCard} glass`}
               >
                 <div className={styles.benefitIcon}>{benefit.icon}</div>

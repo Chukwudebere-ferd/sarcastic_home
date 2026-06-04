@@ -34,7 +34,7 @@ const TargetAudience = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className={styles.header}
@@ -51,6 +51,7 @@ const TargetAudience = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -5 }}
               className={`${styles.card} glass`}
             >
               <div className={styles.imageWrapper}>
@@ -61,6 +62,7 @@ const TargetAudience = () => {
                   height={200} 
                   className={styles.image}
                 />
+                <div className={styles.imageOverlay} />
               </div>
               <div className={styles.info}>
                 <h3 className={styles.name}>{persona.name}</h3>

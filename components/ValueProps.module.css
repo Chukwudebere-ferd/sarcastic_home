@@ -1,105 +1,148 @@
 .section {
-  padding: 120px 0;
-  background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.05), transparent);
+  padding: 10rem 2rem;
+  background: var(--deep-black);
 }
 
 .container {
   max-width: 1200px;
-  width: 90%;
   margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--pure-white);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 40px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
 }
 
 .mainCard {
-  padding: 60px 40px;
-  text-align: center;
+  padding: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-color: var(--primary-purple);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--electric-purple) !important;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
 }
 
 .coinContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 3rem;
   perspective: 1000px;
-  margin-bottom: 32px;
 }
 
 .coin {
-  width: 120px;
-  height: 120px;
-  background: var(--primary-purple);
-  border: 4px solid var(--electric-purple);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.coinFront, .coinBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #B45309 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-family: var(--font-serif);
+  font-size: 5rem;
   font-weight: 900;
-  color: white;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-  transform-style: preserve-3d;
+  color: #78350F;
+  border: 4px solid #FDE68A;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.coinBack {
+  transform: rotateY(180deg);
+}
+
+.coinShadow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  filter: blur(10px);
+  border-radius: 50%;
 }
 
 .mainTitle {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--pure-white);
 }
 
 .mainDescription {
   font-size: 1.1rem;
-  opacity: 0.7;
   line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.8;
+  max-width: 400px;
 }
 
 .benefitsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .benefitCard {
-  padding: 24px;
+  padding: 1.5rem;
   display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  gap: 1.5rem;
+  align-items: center;
   transition: var(--transition);
 }
 
-.benefitCard:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
 .benefitIcon {
-  font-size: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 12px;
-  border-radius: 12px;
+  color: var(--neon-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
 }
 
 .benefitTitle {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
+  color: var(--pure-white);
 }
 
 .benefitDescription {
-  font-size: 0.9rem;
-  opacity: 0.6;
+  font-size: 0.95rem;
   line-height: 1.5;
+  color: var(--foreground);
+  opacity: 0.85;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 968px) {
   .grid {
     grid-template-columns: 1fr;
   }
   
   .mainCard {
-    padding: 40px;
+    padding: 3rem 1.5rem;
   }
 }

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
+import { motion } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
@@ -550,7 +551,7 @@ export const Component = () => {
 
 
   return (
-    <div ref={containerRef} className="hero-container cosmos-style relative min-h-screen bg-black overflow-hidden">
+    <div ref={containerRef} className="hero-container cosmos-style relative min-h-screen bg-[#0F172A] overflow-hidden">
       <canvas ref={canvasRef} className="hero-canvas absolute inset-0 w-full h-full" />
       
       {/* Side menu */}
@@ -560,31 +561,57 @@ export const Component = () => {
           <span className="w-6 h-0.5 bg-white"></span>
           <span className="w-6 h-0.5 bg-white"></span>
         </div>
-        <div className="vertical-text [writing-mode:vertical-lr] text-white tracking-[0.5em] text-xs font-light">SPACE</div>
+        <div className="vertical-text [writing-mode:vertical-lr] text-white tracking-[0.5em] text-xs font-bold">TRYBE</div>
       </div>
 
       {/* Main content */}
-      <div className="hero-content cosmos-content relative z-10 flex flex-col items-center justify-center min-h-screen pointer-events-none">
-        <h1 ref={titleRef} className="hero-title text-8xl md:text-[12rem] font-bold text-white tracking-tighter">
-          HORIZON
-        </h1>
-        
-        <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle text-center mt-8 space-y-2">
-          <p className="subtitle-line text-white/60 text-lg md:text-xl font-light">
-            Where vision meets reality, 
-          </p>
-          <p className="subtitle-line text-white/60 text-lg md:text-xl font-light">
-            we shape the future of tomorrow
-          </p>
-        </div>
+      <div className="hero-content cosmos-content relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6 pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="flex flex-col items-center pointer-events-auto"
+        >
+          <div className="mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE] animate-pulse"></span>
+            <span className="text-white/90 text-sm font-medium">0+ joined the trybe</span>
+          </div>
+
+          <h1 ref={titleRef} className="hero-title text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.1] max-w-5xl">
+            Localizing LinkedIn: <span className="italic font-serif text-[#A855F7]">Join Sarcastic Geeks Trybe</span>
+          </h1>
+          
+          <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle text-center mt-8 space-y-4 max-w-3xl">
+            <p className="subtitle-line text-white/90 text-xl md:text-2xl font-light">
+              A developer community where you build, play, learn, and earn.
+            </p>
+            <p className="subtitle-line text-white/70 text-lg md:text-xl font-light">
+              From AI to Web3, games to code. Forget boring — let's geek out.
+            </p>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
+            className="mt-12 flex flex-wrap justify-center gap-4 pointer-events-auto"
+          >
+            <button className="px-8 py-4 bg-[#6B21A8] text-white font-bold rounded-sm border border-[#A855F7] shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:scale-105 transition-transform">
+              Join Sarcastic Geeks Trybe
+            </button>
+            <button className="px-8 py-4 bg-white/5 text-white font-bold rounded-sm border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors">
+              Explore the Roadmap
+            </button>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Scroll progress indicator */}
       <div ref={scrollProgressRef} className="scroll-progress fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4" style={{ visibility: 'hidden' }}>
-        <div className="scroll-text [writing-mode:vertical-lr] text-white/40 text-[10px] tracking-[0.3em]">SCROLL</div>
+        <div className="scroll-text [writing-mode:vertical-lr] text-white/80 text-[10px] tracking-[0.3em] font-bold">EXPLORE</div>
         <div className="progress-track w-px h-32 bg-white/10 relative overflow-hidden">
           <div 
-            className="progress-fill absolute top-0 left-0 w-full bg-white transition-all duration-300" 
+            className="progress-fill absolute top-0 left-0 w-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE] transition-all duration-300" 
             style={{ height: `${scrollProgress * 100}%` }}
           />
         </div>
@@ -597,23 +624,23 @@ export const Component = () => {
       <div className="scroll-sections relative z-10">
        {[...Array(2)].map((_, i) => {
           const titles = {
-            0: 'HORIZON',
-            1: 'COSMOS',
-            2: 'INFINITY'
+            0: 'BUILD.',
+            1: 'PLAY.',
+            2: 'LEARN. EARN.'
           };
           
           const subtitles = {
             0: {
-              line1: 'Where vision meets reality,',
-              line2: 'we shape the future of tomorrow'
+              line1: 'Build Your Profile & Proof of Work,',
+              line2: 'matched to roles in funded startups.'
             },
             1: {
-              line1: 'Beyond the boundaries of imagination,',
-              line2: 'lies the universe of possibilities'
+              line1: 'Game Nights, Active Debugging, Hackathons,',
+              line2: 'and Saturday X Spaces (8 PM WAT).'
             },
             2: {
-              line1: 'In the space between thought and creation,',
-              line2: 'we find the essence of true innovation'
+              line1: 'AI-Powered Roadmaps by Bez AI,',
+              line2: 'where vision meets community backing.'
             }
           };
           
@@ -624,10 +651,10 @@ export const Component = () => {
               </h1>
           
               <div className="hero-subtitle cosmos-subtitle text-center mt-8 space-y-2">
-                <p className="subtitle-line text-white/60 text-lg md:text-xl font-light">
+                <p className="subtitle-line text-white/90 text-xl md:text-2xl font-light">
                   {subtitles[i+1].line1}
                 </p>
-                <p className="subtitle-line text-white/60 text-lg md:text-xl font-light">
+                <p className="subtitle-line text-white/80 text-lg md:text-xl font-light">
                   {subtitles[i+1].line2}
                 </p>
               </div>

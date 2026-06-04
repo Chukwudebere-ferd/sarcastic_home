@@ -8,17 +8,20 @@ const Navbar = () => {
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`${styles.navbar} glass`}
     >
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <Image 
-            src="https://sarcasticgeeks.com/logo.png" 
-            alt="Sarcastic Geeks Logo" 
-            width={40} 
-            height={40}
-          />
+          <div className={styles.logoWrapper}>
+            <Image 
+              src="https://sarcasticgeeks.com/logo.png" 
+              alt="Sarcastic Geeks Logo" 
+              width={32} 
+              height={32}
+              className={styles.logoImage}
+            />
+          </div>
           <span className="serif">Sarcastic Geeks</span>
         </Link>
 
@@ -30,11 +33,14 @@ const Navbar = () => {
         </div>
 
         <motion.button 
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ 
+            scale: 1.05,
+            boxShadow: "0 0 20px rgba(34, 211, 238, 0.3)"
+          }}
           whileTap={{ scale: 0.95 }}
-          className={`${styles.cta} clipped-corner neon-glow`}
+          className={`${styles.cta} clipped-corner`}
         >
-          Join the Trybe
+          Join Sarcastic Geeks Trybe
         </motion.button>
       </div>
     </motion.nav>

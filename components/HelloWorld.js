@@ -1,35 +1,57 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { Zap } from 'lucide-react';
 import styles from './HelloWorld.module.css';
 
 const HelloWorld = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
   return (
-    <section id="hello-world" className={styles.section}>
-      <div className={styles.container}>
+    <section id="hello-world" ref={ref} className={styles.section}>
+      <motion.div 
+        style={{ scale, opacity }}
+        className={styles.container}
+      >
         <div className={styles.grid}>
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className={styles.content}
-          >
+          <div className={styles.content}>
             <h2 className={styles.title}>Hello World <span className="serif">flips the job hunt.</span></h2>
             <p className={styles.description}>
               Built inside the Sarcastic Geeks Trybe, we match you to roles shaped by actual funded projects — 
               then generate a detailed roadmap with recommended proof-of-work to get there.
             </p>
-            <div className={styles.beginnerBadge}>
-              <span className={styles.icon}><Zap size={16} fill="currentColor" /></span>
-              <span>Perfect for Beginners: No years of experience needed. Just a stack, a project, and a Trybe.</span>
+            <div className={styles.toolFeatures}>
+              <div className={styles.feature}>
+                <Zap size={18} className={styles.icon} />
+                <span>AI Prompting Interface</span>
+              </div>
+              <div className={styles.feature}>
+                <Zap size={18} className={styles.icon} />
+                <span>Environment Verification</span>
+              </div>
+              <div className={styles.feature}>
+                <Zap size={18} className={styles.icon} />
+                <span>Remixable Snippets</span>
+              </div>
             </div>
-            <button className={`${styles.cta} clipped-corner neon-glow`}>
+            <motion.button 
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34, 211, 238, 0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              className={`${styles.cta} clipped-corner`}
+            >
               Try Hello World
-            </button>
-          </motion.div>
+            </motion.button>
+          </div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className={`${styles.terminal} glass`}
           >
@@ -44,7 +66,7 @@ const HelloWorld = () => {
               <motion.p 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ delay: 1 }}
+                transition={{ delay: 0.5 }}
                 className={styles.line}
               >
                 <span className={styles.success}>[SUCCESS]</span> Found 12 freshly funded startups matching your stack.
@@ -52,7 +74,7 @@ const HelloWorld = () => {
               <motion.p 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ delay: 2 }}
+                transition={{ delay: 1.2 }}
                 className={styles.line}
               >
                 <span className={styles.info}>[AI]</span> Generating Proof-of-Work roadmap...
@@ -60,7 +82,7 @@ const HelloWorld = () => {
               <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ delay: 3 }}
+                transition={{ delay: 2 }}
                 className={styles.roadmap}
               >
                 <div className={styles.roadmapItem}>1. Build Agentic Chat Interface</div>
@@ -70,7 +92,7 @@ const HelloWorld = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

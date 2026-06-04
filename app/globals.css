@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 :root {
-  --background: 222.2 84% 4.9%;
+  --background: 222 47% 11%; /* #0F172A - Deep Black */
   --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
+  --card: 222 47% 11%;
   --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
+  --popover: 222 47% 11%;
   --popover-foreground: 210 40% 98%;
   --primary: 210 40% 98%;
   --primary-foreground: 222.2 47.4% 11.2%;
@@ -26,7 +26,7 @@
   --ring: 212.7 26.8% 83.9%;
   --radius: 0.5rem;
 
-  /* Brand Colors (Keep originals) */
+  /* Brand Colors (Blueprint Exact) */
   --primary-purple: #6B21A8;
   --electric-purple: #A855F7;
   --deep-black: #0F172A;
@@ -34,16 +34,16 @@
   --pure-white: #FFFFFF;
   
   /* UI Surface Colors */
-  --glass-surface: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-surface: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
   
   /* Typography */
   --font-serif: 'Instrument Serif', serif;
   --font-sans: 'Inter', sans-serif;
   
   /* Effects */
-  --glass-blur: blur(12px);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-blur: blur(16px);
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -56,7 +56,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--background);
+  background-color: var(--deep-black);
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

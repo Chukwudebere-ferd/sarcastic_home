@@ -7,25 +7,25 @@ const steps = [
   {
     number: "01",
     title: "Build Your Profile",
-    description: "Link your GitHub, add your stack, and showcase your Trybe projects. This becomes your proof of work that speaks louder than any CV.",
+    description: "Build Your Profile (GitHub/Stack). Link your GitHub, add your stack, and showcase your Trybe projects.",
     icon: <User size={32} />
   },
   {
     number: "02",
     title: "AI Sniffs Out Fresh Roles",
-    description: "We track newly funded startups in real-time. When they post roles, our AI crafts requirements based on what they actually need.",
+    description: "AI Sniffs Out Fresh Roles (Real-time tracking). We track newly funded startups in real-time.",
     icon: <Search size={32} />
   },
   {
     number: "03",
     title: "Bez AI Builds Your Roadmap",
-    description: "Our algorithm tracks freshly funded projects in real-time — then crafts job requirements based on what that funding actually needs.",
+    description: "Bez AI Builds Your Roadmap (Market-driven). Our algorithm tracks freshly funded projects — then crafts job requirements.",
     icon: <Map size={32} />
   },
   {
     number: "04",
     title: "Apply with Community Backing",
-    description: "Leverage the power of the Sarcastic Geeks Trybe network to get warm referrals and direct access to hiring managers.",
+    description: "Apply with Community Backing. Leverage the power of the Sarcastic Geeks Trybe network to get warm referrals.",
     icon: <Handshake size={32} />
   }
 ];
@@ -41,12 +41,13 @@ const HowItWorks = () => {
           height={600} 
           className={styles.bgImage}
         />
+        <div className={styles.overlay} />
       </div>
       <div className={styles.container}>
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className={styles.header}
         >
           <h2 className={styles.title}>How it <span className="serif">works.</span></h2>
@@ -57,14 +58,15 @@ const HowItWorks = () => {
           {steps.map((step, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              whileHover={{ y: -10, transition: { duration: 0.2 } }}
               className={`${styles.card} glass`}
             >
               <div className={styles.stepNumber}>{step.number}</div>
-              <div className={styles.icon}>{step.icon}</div>
+              <div className={styles.iconWrapper}>{step.icon}</div>
               <h3 className={styles.cardTitle}>{step.title}</h3>
               <p className={styles.cardDescription}>{step.description}</p>
             </motion.div>

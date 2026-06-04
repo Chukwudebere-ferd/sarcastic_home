@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} glass`}>
+    <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.brand}>
@@ -23,20 +24,32 @@ const Footer = () => {
               <Link href="/privacy">Privacy Policy</Link>
               <Link href="/terms">Terms of Service</Link>
               <Link href="/refund">Refund Policy</Link>
+              <Link href="/contact">Contact</Link>
             </div>
             <div className={styles.column}>
               <h4>Social</h4>
-              <a href="https://twitter.com/sarcasticgeek4u" target="_blank" rel="noopener noreferrer">Twitter / X</a>
-              <a href="mailto:mail@sarcasticgeeks.com">Contact Us</a>
+              <a href="https://twitter.com/sarcasticgeek4u" target="_blank" rel="noopener noreferrer">@sarcasticgeek4u (Twitter/X)</a>
             </div>
           </div>
         </div>
+
+        {/* Big Display Text Requested by User */}
+        <div className={styles.displayTextWrapper}>
+          <motion.h1 
+            whileHover={{ 
+              color: 'var(--neon-cyan)',
+              textShadow: '0 0 30px rgba(34, 211, 238, 0.4)',
+              opacity: 0.3
+            }}
+            transition={{ duration: 0.5 }}
+            className={styles.displayText}
+          >
+            SARCASTIC GEEKS
+          </motion.h1>
+        </div>
         
         <div className={styles.bottom}>
-          <p>© 2026 Sarcastic Geeks Trybe. All rights reserved.</p>
-          <div className={styles.socialIcons}>
-            {/* Add icons here if needed */}
-          </div>
+          <p>© 2026, Sarcastic Geeks Trybe.</p>
         </div>
       </div>
     </footer>

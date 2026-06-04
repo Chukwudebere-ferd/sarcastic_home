@@ -1,127 +1,140 @@
 .section {
-  padding: 120px 0;
-  background: radial-gradient(circle at bottom right, rgba(107, 33, 168, 0.05), transparent);
+  padding: 10rem 2rem;
+  background: var(--deep-black);
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1200px;
-  width: 90%;
   margin: 0 auto;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 6rem;
   align-items: center;
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
-  margin-bottom: 24px;
+  margin-bottom: 2rem;
+  color: var(--pure-white);
 }
 
 .description {
   font-size: 1.2rem;
-  opacity: 0.7;
   line-height: 1.6;
-  margin-bottom: 32px;
+  color: var(--foreground);
+  opacity: 0.95;
+  margin-bottom: 2.5rem;
 }
 
-.beginnerBadge {
+.toolFeatures {
   display: flex;
-  gap: 16px;
-  padding: 20px;
-  background: rgba(34, 211, 238, 0.05);
-  border: 1px solid rgba(34, 211, 238, 0.1);
-  border-radius: 12px;
-  margin-bottom: 40px;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: var(--foreground);
+  opacity: 0.9;
+}
+
+.icon {
+  color: var(--neon-cyan);
 }
 
 .cta {
   background: var(--neon-cyan);
   color: var(--deep-black);
-  padding: 16px 32px;
-  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  transition: var(--transition);
 }
 
 .terminal {
-  border-radius: 12px;
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 .terminalHeader {
-  background: rgba(255,255,255,0.05);
-  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .dots {
   display: flex;
-  gap: 6px;
+  gap: 0.5rem;
 }
 
 .dots span {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.2);
 }
 
+.dots span:nth-child(1) { background: #ff5f56; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #27c93f; }
+
 .terminalTitle {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
   opacity: 0.5;
-  letter-spacing: 1px;
+  font-family: monospace;
 }
 
 .terminalBody {
-  padding: 24px;
+  padding: 2rem;
   font-family: 'Geist Mono', monospace;
-  font-size: 0.9rem;
-  min-height: 250px;
+  font-size: 0.95rem;
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .line {
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
+  color: var(--foreground);
 }
 
 .prompt {
-  color: var(--electric-purple);
-  margin-right: 10px;
-}
-
-.success {
-  color: #10b981;
-}
-
-.info {
   color: var(--neon-cyan);
+  margin-right: 0.5rem;
 }
+
+.success { color: #27c93f; font-weight: bold; }
+.info { color: var(--electric-purple); font-weight: bold; }
 
 .roadmap {
-  margin-top: 24px;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.75rem;
 }
 
 .roadmapItem {
-  padding: 10px 16px;
-  background: rgba(255,255,255,0.03);
-  border-left: 2px solid var(--electric-purple);
+  color: var(--foreground);
+  opacity: 0.8;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 968px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 4rem;
   }
 }
