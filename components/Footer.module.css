@@ -79,7 +79,7 @@
 
 .displayText {
   font-family: var(--font-serif);
-  font-size: clamp(4rem, 18vw, 15rem);
+  font-size: clamp(3rem, 12vw, 10rem);
   font-weight: 400;
   font-style: italic;
   color: var(--pure-white);
@@ -93,7 +93,7 @@
   user-select: none;
   transition: opacity 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
   display: flex;
-  gap: 0.5em;
+  gap: 0.2em;
 }
 
 .word {
