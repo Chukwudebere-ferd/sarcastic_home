@@ -3,68 +3,62 @@
 This document catalogs every element found on the [Sarcastic Geeks](https://sarcasticgeeks.com/) landing page.
 
 ## 1. Global Navigation & Brand
-- **Logo:** Sarcastic Geeks Brand Logo (Minimalist/Geek aesthetic).
+- **Logo URL:** `https://sarcasticgeeks.com/logo.png`
 - **Primary CTA:** "Join Sarcastic Geeks Trybe"
-- **Design Aesthetic:** **"SaaS Noir"**
-  - **Typography:** Instrument Serif (Italic editorial headlines), Inter/Geist (Sans-serif body/ui).
-  - **Effects:** Liquid-glass surfaces, ultra-thin backdrop blur, clipped-corner geometry.
-- **Founder/Lead:** @gozkybrain4u (Sarcastic Geek).
+- **Design Aesthetic:** **"SaaS Noir / Vibrant Geek"**
+  - **Typography:** 
+    - **Headlines:** Instrument Serif (Italic editorial style).
+    - **Body/UI:** Inter / Geist / Geist Mono.
+- **Brand Colors:**
+  - **Primary Purple:** `#6B21A8`
+  - **Electric Purple:** `#A855F7`
+  - **Deep Black:** `#0F172A`
+  - **Neon Cyan:** `#22D3EE`
+  - **Pure White:** `#FFFFFF`
+- **Effects:** Liquid-glass surfaces, backdrop-filter: blur(12px), clipped-corner geometry.
 
-## 2. Hero Section (Identity & Hook)
+## 2. Image Assets (Static URLs)
+- `https://sarcasticgeeks.com/images/connect.jpg`
+- `https://sarcasticgeeks.com/images/cup.png`
+- `https://sarcasticgeeks.com/images/eche2.png`
+- `https://sarcasticgeeks.com/images/enugu.png`
+- `https://sarcasticgeeks.com/images/godwin.png`
+- `https://sarcasticgeeks.com/images/morgan.png`
+- `https://sarcasticgeeks.com/images/trybe-trio.jpg`
+
+## 3. Hero Section (Identity & Hook)
 - **Headline:** "Localizing LinkedIn: Join Sarcastic Geeks Trybe — a developer community where you build, play, learn, and earn."
 - **Sub-headline:** "From AI to Web3, games to code. Forget boring — let's geek out."
 - **Primary CTA Button:** "Join Sarcastic Geeks Trybe"
-- **Social Proof Counter:** "0+ joined the trybe" (Dynamic/Live counter).
-- **Main Visual:** Cinematic looping background videos (Candidate for 3D depth/overlay).
+- **Social Proof Counter:** "0+ joined the trybe"
 
-## 3. Product Spotlight: "Hello World" (The Job Hunt & Tool)
+## 4. Product Spotlight: "Hello World"
 - **Headline:** "Hello World flips the job hunt."
-- **Core Copy:** "Built inside the Sarcastic Geeks Trybe, we match you to roles shaped by actual funded projects — then generate a detailed roadmap with recommended proof-of-work to get there."
-- **Tool Functionality (Interactive):**
-  - Simplified AI entry point for prompting & interaction.
-  - "Hello World" style interface for environment verification.
-  - Educational scaffolding: "Remixable" code snippets (Python/JS).
-- **Target Message (Beginners):** "And yes — this is for beginners too... You do not need years of experience. You need a stack, a project, and a Trybe."
+- **Core Copy:** "Built inside the Sarcastic Geeks Trybe, we match you to roles shaped by actual funded projects..."
+- **Tool Functionality:** AI Prompting interface, environment verification, remixable snippets.
 
-## 4. "How It Works" Section (Four Steps)
-- **Step 1: Build Your Profile** - GitHub link + stack + Trybe projects = Proof of Work.
-- **Step 2: AI Sniffs Out Fresh Roles** - Real-time tracking of newly funded startups.
-- **Step 3: Bez AI Builds Your Roadmap** - AI crafts requirements based on real market activity. No buzzword stuffing.
-- **Step 4: Apply with Community Backing** - Leveraging the Trybe network.
+## 5. "How It Works" Section
+- **Step 1:** Build Your Profile (GitHub/Stack).
+- **Step 2:** AI Sniffs Out Fresh Roles (Real-time tracking).
+- **Step 3:** Bez AI Builds Your Roadmap (Market-driven).
+- **Step 4:** Apply with Community Backing.
 
-## 5. "Play & Learn" (Community Activities)
-- **Core Concept:** "Proof of Community."
-- **Activities:**
-  - **Game Nights:** Social social engagement.
-  - **Active Debugging:** Collaborative real-time code fixes.
-  - **Hackathons & Buildathons:** Quarterly events scaling "Hello World" concepts.
-  - **Weekly X Spaces:** Every Saturday at 8 PM WAT (Hosted by @gozkybrain4u).
-- **Advanced Focus:** Building "Agentic Systems" (AI agents interacting with blockchain).
+## 6. "Play & Learn" (Community Activities)
+- **Activities:** Game Nights, Active Debugging, Hackathons, Saturday X Spaces (8 PM WAT).
+- **Focus:** "Agentic Systems" (AI Agents + Blockchain).
 
-## 6. "What You Get" (Value Props)
-- **AI-Matched Opportunities:** Real fit based on profile/stack.
-- **Proof of Work Portfolio:** Integrated evidence of challenges/projects.
-- **Global + Remote First:** Connecting Nigerian talent to global markets.
-- **Community Referrals:** Direct referrals from Trybe seniors.
-- **Interview Prep Engine:** Bez AI tailored roadmaps.
-- **Cowrie-Backed Applications:** Use **Cowries** (community currency) to boost visibility and unlock premium listings.
+## 7. "What You Get" (Value Props)
+- AI-Matched Opportunities, Proof of Work Portfolio, Global/Remote First, Community Referrals, Interview Prep Engine, Cowrie-Backed Applications.
 
-## 7. Key Metrics (Stat Blocks)
-- **0+** Trybe Members
-- **100%** Real Project Data
-- **AI** Powered Roadmaps
+## 8. Key Metrics
+- **0+** Trybe Members, **100%** Real Project Data, **AI** Powered Roadmaps.
 
-## 8. Footer Section
+## 9. Footer Section
 - **Copyright:** © 2026, Sarcastic Geeks Trybe.
-- **Links:**
-  - Privacy Policy
-  - Terms of Service
-  - Contact Information
-  - Refund Policy
-- **Social Handles:** @sarcasticgeek4u (Twitter/X).
+- **Links:** Privacy, Terms, Contact, Refund.
+- **Socials:** @sarcasticgeek4u (Twitter/X).
 
 ## 3D Animation & UX Enhancement Plan
-- **Hero:** Scroll-driven word reveals, floating 3D "Cowrie" coins or tech icons.
-- **Sections:** Clipped-corner buttons with hover liquid-glass effects.
-- **Transitions:** Liquid-glass surface transitions between sections.
-- **Play Section:** Interactive 3D "Code Remix" module or AI Agent visualization.
+- **Hero:** Scroll-driven word reveals, floating 3D "Cowrie" coins.
+- **Buttons:** Liquid-glass effects with Neon Cyan glowing borders.
+- **Interactive:** 3D "Code Remix" module in the Play section.

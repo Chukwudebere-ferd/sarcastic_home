@@ -1,0 +1,143 @@
+.section {
+  padding: 120px 0;
+  perspective: 1000px;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 1.1rem;
+  opacity: 0.6;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.imageOverlay {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  border: 1px solid var(--glass-border);
+}
+
+.trybeImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1) opacity(0.5);
+  transition: var(--transition);
+}
+
+.imageOverlay:hover .trybeImage {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.05);
+}
+
+.focus h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.4;
+  margin-bottom: 16px;
+}
+
+.tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  border-radius: 100px;
+}
+
+.activitiesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.actCard {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+.actHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.actTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.actTime {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.actDescription {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  line-height: 1.5;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 100px;
+  height: 100px;
+  filter: blur(40px);
+  opacity: 0.1;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.actCard:hover .cardGlow {
+  opacity: 0.3;
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .activitiesGrid {
+    grid-template-columns: 1fr;
+  }
+}
