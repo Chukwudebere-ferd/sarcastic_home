@@ -35,17 +35,38 @@ const Footer = () => {
 
         {/* Big Display Text Requested by User */}
         <div className={styles.displayTextWrapper}>
-          <motion.h1 
-            whileHover={{ 
-              color: 'var(--neon-cyan)',
-              textShadow: '0 0 30px rgba(34, 211, 238, 0.4)',
-              opacity: 0.3
-            }}
-            transition={{ duration: 0.5 }}
+          <motion.div 
             className={styles.displayText}
           >
-            SARCASTIC GEEKS
-          </motion.h1>
+            {["SARCASTIC", "GEEKS"].map((word, i) => (
+              <motion.span
+                key={i}
+                className={styles.word}
+                animate={{ 
+                  y: [0, -20, 0],
+                  opacity: [0.1, 0.3, 0.1],
+                  textShadow: [
+                    "0 0 0px rgba(168, 85, 247, 0)",
+                    "0 0 30px rgba(168, 85, 247, 0.4)",
+                    "0 0 0px rgba(168, 85, 247, 0)"
+                  ]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  delay: i * 2,
+                  ease: "easeInOut"
+                }}
+                whileHover={{ 
+                  color: 'var(--neon-cyan)',
+                  opacity: 0.5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
       </div>
     </footer>

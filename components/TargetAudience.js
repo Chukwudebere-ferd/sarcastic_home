@@ -7,7 +7,7 @@ const personas = [
     name: "Fresh Graduates",
     role: "Bootcamp Completers",
     description: "Build credible proof of work from day one. No years of experience? No problem.",
-    image: "https://sarcasticgeeks.com/images/morgan.png"
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=400"
   },
   {
     name: "Mid-Level Engineers",
@@ -19,13 +19,13 @@ const personas = [
     name: "Designers & PMs",
     role: "Tech Creatives",
     description: "A community for everyone in tech. Connect with engineers and build real products.",
-    image: "https://sarcasticgeeks.com/images/enugu.png"
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=400"
   },
   {
     name: "Career Switchers",
     role: "Transitioning to Tech",
     description: "Follow a tailored AI-generated roadmap to pivot into your first tech role.",
-    image: "https://sarcasticgeeks.com/images/eche2.png"
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
