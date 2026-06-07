@@ -1,11 +1,18 @@
 .section {
   padding: 8rem 2rem;
-  background: var(--deep-bg);
+  background: var(--deep-black);
   position: relative;
   overflow: hidden;
 }
 
-.container {
+.mainTitle {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.1;
+  color: var(--pure-white);
+  font-weight: 700;
+}
+
+.titleWrapper {
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -52,32 +59,6 @@
   margin-bottom: 2.5rem;
 }
 
-.title {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.85;
-}
-
-.helloText {
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 12vw, 10rem);
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.15);
-  margin-bottom: -1.5rem;
-  letter-spacing: -0.04em;
-}
-
-.worldText {
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 12vw, 10rem);
-  font-weight: 900;
-  color: var(--pure-white);
-  letter-spacing: -0.04em;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
 .masks {
   display: flex;
   gap: 0.5rem;
@@ -112,7 +93,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid var(--deep-bg);
+  border: 2px solid var(--deep-black);
   margin-left: -12px;
   overflow: hidden;
 }

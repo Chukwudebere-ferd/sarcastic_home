@@ -1,74 +1,62 @@
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './TargetAudience.module.css';
 
-const personas = [
-  {
-    name: "Fresh Graduates",
-    role: "Bootcamp Completers",
-    description: "Build credible proof of work from day one. No years of experience? No problem.",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=400"
-  },
-  {
-    name: "Mid-Level Engineers",
-    role: "Looking to level up",
-    description: "Get matched to roles in funded startups that actually match your growth path.",
-    image: "https://sarcasticgeeks.com/images/godwin.png"
-  },
-  {
-    name: "Designers & PMs",
-    role: "Tech Creatives",
-    description: "A community for everyone in tech. Connect with engineers and build real products.",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=400"
-  },
-  {
-    name: "Career Switchers",
-    role: "Transitioning to Tech",
-    description: "Follow a tailored AI-generated roadmap to pivot into your first tech role.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
-  }
-];
-
 const TargetAudience = () => {
+  const personas = [
+    {
+      name: "The Builder",
+      role: "Software Engineer",
+      image: "https://sarcasticgeeks.com/images/godwin.png",
+      description: "Focused on shipping high-quality code and validating their skills through proof-of-work."
+    },
+    {
+      name: "The Visionary",
+      role: "Product Designer",
+      image: "https://sarcasticgeeks.com/images/morgan.png",
+      description: "Crafting beautiful interfaces and user experiences that push geek culture forward."
+    },
+    {
+      name: "The Strategist",
+      role: "Tech Lead",
+      image: "https://sarcasticgeeks.com/images/enugu.png",
+      description: "Mentoring the next generation of geeks and coordinating complex community projects."
+    }
+  ];
+
   return (
-    <section className={styles.section}>
+    <section id="target-audience" className={styles.section}>
       <div className={styles.container}>
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          className={styles.header}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={styles.header}
         >
-          <h2 className={styles.title}>Who is <span className="serif">Hello World for?</span></h2>
-          <p className={styles.subtitle}>Tailored paths for every stage of your tech journey.</p>
+          <h2 className={styles.title}>Who is the Trybe for?</h2>
+          <p className={styles.subtitle}>A home for every type of geek.</p>
         </motion.div>
 
         <div className={styles.grid}>
           {personas.map((persona, i) => (
             <motion.div 
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
+              key={i} 
+              className={styles.card}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -5 }}
-              className={`${styles.card} glass`}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              whileHover={{ y: -5, background: 'rgba(34, 211, 238, 0.03)' }}
             >
               <div className={styles.imageWrapper}>
-                <Image 
+                <img 
                   src={persona.image} 
                   alt={persona.name} 
-                  width={200} 
-                  height={200} 
                   className={styles.image}
                 />
-                <div className={styles.imageOverlay} />
               </div>
-              <div className={styles.info}>
-                <h3 className={styles.name}>{persona.name}</h3>
-                <span className={styles.role}>{persona.role}</span>
-                <p className={styles.description}>{persona.description}</p>
-              </div>
+              <h3 className={styles.name}>{persona.name}</h3>
+              <span className={styles.role}>{persona.role}</span>
+              <p className={styles.description}>{persona.description}</p>
             </motion.div>
           ))}
         </div>

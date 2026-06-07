@@ -1,1 +1,1 @@
-this project is a collaboration between me and a developer task has been splited i have been selected to recreate the https://sarcasticgeeks.com/home page using plain css , nextjs without typescript,https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+this project is a collaboration between me and a developer task has been splited i have been selected to recreate the https://sarcasticgeeks.com/home page , nextjs

@@ -28,11 +28,12 @@ export default function Home() {
         <>
           <Navbar />
           <main className="flex flex-col w-full">
-            {/* HelloWorld is now the Hero section */}
-            <HelloWorld />
+            {/* Cinematic 3D Hero Section */}
+            <DemoOne />
             
-            {/* Other Sections */}
+            {/* Existing Content */}
             <Stats />
+            <HelloWorld />
             <HowItWorks />
             <PlayAndLearn />
             <ValueProps />

@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: var(--pure-black);
+  background: var(--deep-black);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -28,32 +28,32 @@
 
 .ring {
   position: absolute;
-  border-radius: 2px;
-  border: 1px solid transparent;
+  border-radius: 50%;
+  border: 2px solid transparent;
 }
 
 .ring1 {
   width: 100%;
   height: 100%;
-  border-top-color: var(--terminal-green);
-  border-bottom-color: var(--terminal-green);
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  border-top-color: var(--brand-cyan);
+  border-bottom-color: var(--brand-cyan);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.1);
 }
 
 .ring2 {
-  width: 85%;
-  height: 85%;
-  border-left-color: var(--terminal-orange);
-  border-right-color: var(--terminal-orange);
-  box-shadow: 0 0 20px rgba(245, 77, 40, 0.2);
+  width: 80%;
+  height: 80%;
+  border-left-color: var(--brand-purple-electric);
+  border-right-color: var(--brand-purple-electric);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
 }
 
 .ring3 {
-  width: 70%;
-  height: 70%;
-  border-top-color: var(--terminal-pink);
-  border-left-color: var(--terminal-pink);
-  box-shadow: 0 0 20px rgba(227, 60, 199, 0.2);
+  width: 60%;
+  height: 60%;
+  border-top-color: var(--brand-cyan);
+  border-left-color: var(--brand-cyan);
+  opacity: 0.5;
 }
 
 .logoContainer {
@@ -62,18 +62,19 @@
 }
 
 .logoContainer h1 {
-  font-family: var(--font-mono);
-  font-size: 3rem;
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-style: italic;
   color: var(--pure-white);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-transform: none;
 }
 
 .statusText {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  color: var(--terminal-green);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--brand-cyan);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -89,6 +90,6 @@
   position: absolute;
   width: 100%;
   height: 1px;
-  background: var(--terminal-green);
+  background: var(--brand-cyan);
   opacity: 0;
 }

@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { X, Code2, Briefcase, Play } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -8,65 +8,54 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <h2 className={`${styles.logo} serif`}>Sarcastic Geeks</h2>
-            <p className={styles.tagline}>A Normal Life Is Boring.</p>
+            <h2 className={styles.logo}>Sarcastic Geeks</h2>
+            <p className={styles.tagline}>
+              A developer community where you build, play, learn, and earn. 
+              Forget boring — let's geek out.
+            </p>
           </div>
-          
+
           <div className={styles.linksGrid}>
             <div className={styles.column}>
-              <h4>The Trybe</h4>
-              <Link href="#about">About Us</Link>
-              <Link href="#roadmap">Roadmap</Link>
-              <Link href="#events">Events</Link>
+              <h4>Explore</h4>
+              <a href="#projects">Our Projects</a>
+              <a href="#services">Our Services</a>
+              <a href="#roadmap">Roadmap</a>
+            </div>
+            <div className={styles.column}>
+              <h4>Community</h4>
+              <a href="#trybe">The Trybe</a>
+              <a href="#events">Events</a>
+              <a href="#discord">Discord</a>
             </div>
             <div className={styles.column}>
               <h4>Legal</h4>
-              <Link href="/privacy">Privacy Policy</Link>
-              <Link href="/terms">Terms of Service</Link>
-              <Link href="/refund">Refund Policy</Link>
-              <Link href="/contact">Contact</Link>
-            </div>
-            <div className={styles.column}>
-              <h4>Social</h4>
-              <a href="https://twitter.com/sarcasticgeek4u" target="_blank" rel="noopener noreferrer">@sarcasticgeek4u (Twitter/X)</a>
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms of Service</a>
             </div>
           </div>
         </div>
 
-        {/* Big Display Text Requested by User */}
         <div className={styles.displayTextWrapper}>
-          <motion.div 
+          <motion.h2 
             className={styles.displayText}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 0.03, y: 0 }}
+            transition={{ duration: 1 }}
           >
-            {["SARCASTIC", "GEEKS"].map((word, i) => (
-              <motion.span
-                key={i}
-                className={styles.word}
-                animate={{ 
-                  y: [0, -20, 0],
-                  opacity: [0.1, 0.3, 0.1],
-                  textShadow: [
-                    "0 0 0px rgba(168, 85, 247, 0)",
-                    "0 0 30px rgba(168, 85, 247, 0.4)",
-                    "0 0 0px rgba(168, 85, 247, 0)"
-                  ]
-                }}
-                transition={{ 
-                  duration: 4,
-                  repeat: Infinity,
-                  delay: i * 2,
-                  ease: "easeInOut"
-                }}
-                whileHover={{ 
-                  color: 'var(--neon-cyan)',
-                  opacity: 0.5,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.div>
+            A NORMAL LIFE IS BORING
+          </motion.h2>
+        </div>
+
+        <div className={styles.bottom}>
+          <p>© 2026 Sarcastic Geeks. Built by geeks, for geeks.</p>
+          
+          <div className={styles.socials}>
+            <motion.a whileHover={{ scale: 1.2, color: 'var(--brand-cyan)' }} href="#" className={styles.socialIcon}><X size={20} /></motion.a>
+            <motion.a whileHover={{ scale: 1.2, color: 'var(--brand-cyan)' }} href="#" className={styles.socialIcon}><Code2 size={20} /></motion.a>
+            <motion.a whileHover={{ scale: 1.2, color: 'var(--brand-cyan)' }} href="#" className={styles.socialIcon}><Briefcase size={20} /></motion.a>
+            <motion.a whileHover={{ scale: 1.2, color: 'var(--brand-cyan)' }} href="#" className={styles.socialIcon}><Play size={20} /></motion.a>
+          </div>
         </div>
       </div>
     </footer>

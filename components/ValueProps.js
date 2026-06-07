@@ -1,95 +1,75 @@
 import { motion } from 'framer-motion';
-import { Target, FolderOpen, Globe, Sparkles, Brain } from 'lucide-react';
+import { Target, Zap, ShieldCheck } from 'lucide-react';
 import styles from './ValueProps.module.css';
 
-const benefits = [
-  {
-    title: "AI-Matched Opportunities",
-    description: "Our system reads your profile, stack, and goals to surface roles that actually fit — not just keyword matches.",
-    icon: <Target size={24} />
-  },
-  {
-    title: "Proof of Work Portfolio",
-    description: "Every project, challenge, and course you complete in the Trybe becomes evidence. Your profile speaks before you do.",
-    icon: <FolderOpen size={24} />
-  },
-  {
-    title: "Global + Remote First",
-    description: "Remote roles from Africa, Europe, and beyond. We connect Nigerian tech talent with the world.",
-    icon: <Globe size={24} />
-  },
-  {
-    title: "Community Referrals",
-    description: "Trybe seniors refer you directly. A warm referral from a trusted geek beats a cold application every time.",
-    icon: <Sparkles size={24} />
-  },
-  {
-    title: "Interview Prep Engine",
-    description: "Bez AI builds you a tailored prep roadmap the moment a job matches your profile. Walk in ready.",
-    icon: <Brain size={24} />
-  }
-];
-
 const ValueProps = () => {
+  const benefits = [
+    {
+      icon: <Target size={24} />,
+      title: "AI-Matched Opportunities",
+      description: "Our AI maps your actual proof-of-work to the technical needs of funded startups."
+    },
+    {
+      icon: <Zap size={24} />,
+      title: "Cowrie-Backed Apps",
+      description: "Apply with community backing and referrals that carry actual weight."
+    },
+    {
+      icon: <ShieldCheck size={24} />,
+      title: "Verified Portfolio",
+      description: "A proof-of-work portfolio that actually does the talking for you."
+    }
+  ];
+
   return (
-    <section className={styles.section}>
+    <section id="value-props" className={styles.section}>
       <div className={styles.container}>
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className={styles.header}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
         >
-          <h2 className={styles.title}>What You <span className="serif">Get.</span></h2>
+          <h2 className={styles.title}>Why Sarcastic Geeks?</h2>
         </motion.div>
+
         <div className={styles.grid}>
-          {/* Main Large Card for Cowries */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            className={styles.mainCard}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={`${styles.mainCard} glass`}
+            transition={{ duration: 0.8 }}
           >
             <div className={styles.coinContainer}>
               <motion.div 
-                animate={{ 
-                  rotateY: [0, 360],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{ 
-                  rotateY: { duration: 5, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-                }}
                 className={styles.coin}
+                animate={{ rotateY: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               >
-                <div className={styles.coinFront}>C</div>
-                <div className={styles.coinBack}>C</div>
+                <div className={styles.coinFront}>$</div>
               </motion.div>
-              <div className={styles.coinShadow} />
             </div>
-            <h2 className={styles.mainTitle}>Cowrie-Backed Applications</h2>
+            <h3 className={styles.mainTitle}>Cowrie Rewards</h3>
             <p className={styles.mainDescription}>
-              Spend <strong>Cowries</strong> (community currency) to boost your visibility 
-              to hiring companies and unlock premium listing access. 
-              Earn them by contributing to the Trybe.
+              Earn Cowries by solving real-world challenges and contributing to the Trybe.
             </p>
           </motion.div>
 
-          {/* Secondary Grid for other benefits */}
           <div className={styles.benefitsGrid}>
             {benefits.map((benefit, i) => (
               <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
+                key={i} 
+                className={styles.benefitCard}
+                initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ x: 5, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
-                className={`${styles.benefitCard} glass`}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                whileHover={{ x: 10, borderColor: 'var(--brand-cyan)' }}
               >
                 <div className={styles.benefitIcon}>{benefit.icon}</div>
                 <div>
-                  <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+                  <h4 className={styles.benefitTitle}>{benefit.title}</h4>
                   <p className={styles.benefitDescription}>{benefit.description}</p>
                 </div>
               </motion.div>

@@ -1,103 +1,78 @@
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Calendar, Gamepad2, Laptop, MessageSquare } from 'lucide-react';
 import styles from './PlayAndLearn.module.css';
 
-const activities = [
-  {
-    title: "Saturday X Spaces",
-    time: "8 PM WAT",
-    description: "Join Gozie and the Trybe every Saturday to discuss AI, Web3, and the future of tech.",
-    color: "#22D3EE" // Neon Cyan
-  },
-  {
-    title: "Game Nights",
-    time: "Regularly",
-    description: "Unwind and bond with fellow geeks. Because a normal life is boring.",
-    color: "#A855F7" // Electric Purple
-  },
-  {
-    title: "Active Debugging",
-    time: "24/7",
-    description: "Get real-time help on your projects from seniors and peers in the community.",
-    color: "#6B21A8" // Primary Purple
-  },
-  {
-    title: "Hackathons",
-    time: "Quarterly",
-    description: "Build and scale your 'Hello World' concepts into real startups with community backing.",
-    color: "#FFFFFF" // Pure White
-  }
-];
-
 const PlayAndLearn = () => {
+  const activities = [
+    {
+      icon: <Calendar size={24} />,
+      title: "Saturday X Spaces",
+      time: "8 PM WAT",
+      description: "Weekly community deep dives into tech trends and geek culture."
+    },
+    {
+      icon: <Gamepad2 size={24} />,
+      title: "Game Nights",
+      time: "Bi-Weekly",
+      description: "Unwind and bond with the trybe over competitive gaming sessions."
+    },
+    {
+      icon: <Laptop size={24} />,
+      title: "Active Debugging",
+      time: "On-demand",
+      description: "Real-time collaborative debugging sessions to squash bugs with the Trybe."
+    },
+    {
+      icon: <MessageSquare size={24} />,
+      title: "Code Review",
+      time: "Daily",
+      description: "Peer-to-peer feedback sessions to level up your engineering game."
+    }
+  ];
+
   return (
-    <section id="events" className={styles.section}>
+    <section id="play-and-learn" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.grid}>
           <motion.div 
+            className={styles.content}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={styles.content}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className={styles.title}>
-              Play, Learn, <br />
-              <span className="serif">& Build Together.</span>
-            </h2>
-            <p className={styles.description}>
-              The Sarcastic Geeks Trybe is more than a job matching platform. 
-              It&apos;s a &quot;Proof of Community&quot; where building agentic systems and 
-              collaborative debugging is the vibe.
-            </p>
-            
-            <div className={styles.imageOverlay}>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className={styles.imageContainer}
-              >
-                <Image 
-                  src="https://sarcasticgeeks.com/images/trybe-trio.jpg" 
-                  alt="Trybe Members" 
-                  width={500} 
-                  height={350} 
-                  className={styles.trybeImage}
-                />
-                <div className={styles.imageGlow} />
-              </motion.div>
-            </div>
-
             <div className={styles.focus}>
-              <h3>Core Focus:</h3>
-              <div className={styles.tags}>
-                <span className="glass">Agentic Systems</span>
-                <span className="glass">AI + Blockchain</span>
-                <span className="glass">Web3 Dev</span>
-              </div>
+              <h3>Agentic Systems Focus</h3>
+            </div>
+            <h2 className={styles.title}>Play & <br /><span className="serif">Learn.</span></h2>
+            <p className={styles.description}>
+              From AI Agents to Blockchain. Beyond the code, we are a family. 
+              Saturday X Spaces (8 PM WAT), Game Nights, and Active Debugging.
+            </p>
+            <div className={styles.tags}>
+              <span>#GeekCulture</span>
+              <span>#LearnByDoing</span>
+              <span>#TrybeVibes</span>
             </div>
           </motion.div>
 
           <div className={styles.activitiesGrid}>
             {activities.map((act, i) => (
               <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={i} 
+                className={styles.actCard}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  rotateY: 5,
-                  rotateX: -2,
-                  translateZ: 20
-                }}
-                className={`${styles.actCard} glass`}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                whileHover={{ y: -10, borderColor: 'var(--brand-cyan)' }}
               >
                 <div className={styles.actHeader}>
-                  <span className={styles.actTitle}>{act.title}</span>
-                  <span className={styles.actTime} style={{ color: act.color }}>{act.time}</span>
+                  <div style={{ color: 'var(--brand-cyan)' }}>{act.icon}</div>
+                  <span className={styles.actTime}>{act.time}</span>
                 </div>
+                <h3 className={styles.actTitle}>{act.title}</h3>
                 <p className={styles.actDescription}>{act.description}</p>
-                <div className={styles.cardGlow} style={{ background: act.color }} />
               </motion.div>
             ))}
           </div>
