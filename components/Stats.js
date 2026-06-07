@@ -9,7 +9,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <div className={styles.statsBar}>
+    <div id="trybe" className={styles.statsBar}>
       <div className={styles.container}>
         {stats.map((stat, i) => (
           <motion.div 

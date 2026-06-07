@@ -1,34 +1,8 @@
 .section {
   padding: 10rem 2rem;
-  background: var(--deep-black);
+  background: var(--pure-black);
   position: relative;
   overflow: hidden;
-}
-
-.backgroundVisual {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.3;
-}
-
-.bgImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.2) brightness(0.4);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, transparent 0%, var(--deep-black) 100%);
 }
 
 .container {
@@ -45,14 +19,16 @@
 
 .title {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 1rem;
-  color: var(--pure-white);
+  margin-bottom: 1.5rem;
+  color: var(--terminal-green);
+  text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  color: var(--foreground);
-  opacity: 0.85;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--pure-white);
+  opacity: 0.7;
 }
 
 .grid {
@@ -66,48 +42,52 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: border-color 0.3s ease;
+  background: rgba(0, 255, 65, 0.02);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
   height: 100%;
 }
 
 .card:hover {
-  border-color: var(--electric-purple);
+  border-color: var(--terminal-green);
+  background: rgba(0, 255, 65, 0.05);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
 }
 
 .stepNumber {
-  font-family: var(--font-display);
-  font-size: 3rem;
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
   font-weight: 800;
-  color: var(--electric-purple);
-  opacity: 0.3;
+  color: var(--terminal-green);
+  opacity: 0.2;
   margin-bottom: 1rem;
   line-height: 1;
 }
 
 .iconWrapper {
-  color: var(--neon-cyan);
+  color: var(--terminal-green);
   margin-bottom: 1.5rem;
-  background: rgba(34, 211, 238, 0.1);
-  width: 64px;
-  height: 64px;
+  background: rgba(0, 255, 65, 0.1);
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 1rem;
 }
 
 .cardTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: var(--pure-white);
+  text-transform: uppercase;
 }
 
 .cardDescription {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--foreground);
-  opacity: 0.7;
+  color: var(--pure-white);
+  opacity: 0.6;
 }
 
 @media (max-width: 768px) {

@@ -36,6 +36,15 @@ export const Component = () => {
     animationId: null
   });
 
+  const getLocation = () => {
+    const { current: refs } = threeRefs;
+    const locations = [];
+    refs.mountains.forEach((mountain, i) => {
+      locations[i] = mountain.position.z;
+    });
+    refs.locations = locations;
+  };
+
   // Initialize Three.js
   useEffect(() => {
     const initThree = () => {
@@ -422,15 +431,6 @@ export const Component = () => {
     };
   }, []);
 
-  const getLocation = () => {
-    const { current: refs } = threeRefs;
-    const locations = [];
-    refs.mountains.forEach( (mountain, i) => {
-      locations[i] = mountain.position.z
-    })
-    refs.locations = locations
-  }
-
   // GSAP Animations - Run after component is ready
   useEffect(() => {
     if (!isReady) return;
@@ -551,17 +551,17 @@ export const Component = () => {
 
 
   return (
-    <div ref={containerRef} className="hero-container cosmos-style relative min-h-screen bg-[#0F172A] overflow-hidden">
+    <div ref={containerRef} className="hero-container cosmos-style relative min-h-screen bg-[#0D1117] overflow-hidden">
       <canvas ref={canvasRef} className="hero-canvas absolute inset-0 w-full h-full" />
       
       {/* Side menu */}
       <div ref={menuRef} className="side-menu fixed left-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-8" style={{ visibility: 'hidden' }}>
         <div className="menu-icon flex flex-col gap-1.5 cursor-pointer">
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
+          <span className="w-6 h-0.5 bg-[#22D3EE]"></span>
+          <span className="w-6 h-0.5 bg-[#A855F7]"></span>
+          <span className="w-6 h-0.5 bg-[#22D3EE]"></span>
         </div>
-        <div className="vertical-text [writing-mode:vertical-lr] text-white tracking-[0.5em] text-xs font-bold">TRYBE</div>
+        <div className="vertical-text [writing-mode:vertical-lr] text-[#22D3EE] tracking-[0.5em] text-xs font-bold">TRYBE</div>
       </div>
 
       {/* Main content */}
@@ -570,24 +570,24 @@ export const Component = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="flex flex-col items-center pointer-events-auto bg-[#0F172A]/40 backdrop-blur-[2px] p-8 md:p-12 rounded-[2rem] border border-white/5"
+          className="flex flex-col items-center pointer-events-auto bg-[#0D1117]/70 backdrop-blur-xl p-8 md:p-12 border border-white/10 rounded-[2rem] shadow-[0_30px_120px_rgba(0,0,0,0.36)]"
         >
-          <div className="mb-6 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE] animate-pulse"></span>
-            <span className="text-white/90 text-sm font-medium">0+ joined the trybe</span>
+          <div className="mb-6 px-4 py-1.5 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/10 backdrop-blur-md flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_14px_#22D3EE] animate-pulse"></span>
+            <span className="text-[#22D3EE] text-xs font-bold">0+ joined the trybe</span>
           </div>
 
-          <h1 ref={titleRef} className="hero-title text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.1] max-w-5xl">
+          <h1 ref={titleRef} className="hero-title text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.02] max-w-5xl">
             Localizing LinkedIn: <br />
-            <span className="italic font-serif text-[#A855F7] drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]">Join Sarcastic Geeks Trybe</span>
+            <span className="font-serif italic font-normal text-[#A855F7] drop-shadow-[0_0_24px_rgba(168,85,247,0.45)]">Join Sarcastic Geeks Trybe</span>
           </h1>
           
           <div ref={subtitleRef} className="hero-subtitle cosmos-subtitle text-center mt-8 space-y-4 max-w-3xl">
-            <p className="subtitle-line text-white/90 text-xl md:text-2xl font-light">
+            <p className="subtitle-line text-white/90 text-lg md:text-xl font-medium">
               A developer community where you build, play, learn, and earn.
             </p>
-            <p className="subtitle-line text-white/70 text-lg md:text-xl font-light">
-              From AI to Web3, games to code. Forget boring — let's geek out.
+            <p className="subtitle-line text-[#22D3EE]/85 text-base md:text-lg">
+              From AI to Web3, games to code. Forget boring - let&apos;s geek out.
             </p>
           </div>
 
@@ -597,10 +597,10 @@ export const Component = () => {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="mt-12 flex flex-wrap justify-center gap-4 pointer-events-auto"
           >
-            <button className="px-8 py-4 bg-[#6B21A8] text-white font-bold rounded-sm border border-[#A855F7] shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:scale-105 transition-transform">
+            <button className="px-8 py-4 rounded-full bg-white text-[#0D1117] font-bold border border-white shadow-[0_16px_36px_rgba(255,255,255,0.14)] hover:scale-105 transition-transform text-sm">
               Join Sarcastic Geeks Trybe
             </button>
-            <button className="px-8 py-4 bg-white/5 text-white font-bold rounded-sm border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors">
+            <button className="px-8 py-4 rounded-full bg-white/5 text-white font-bold border border-white/15 backdrop-blur-md hover:border-[#22D3EE]/60 hover:text-[#22D3EE] transition-colors text-sm">
               Explore the Roadmap
             </button>
           </motion.div>
@@ -609,14 +609,14 @@ export const Component = () => {
 
       {/* Scroll progress indicator */}
       <div ref={scrollProgressRef} className="scroll-progress fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4" style={{ visibility: 'hidden' }}>
-        <div className="scroll-text [writing-mode:vertical-lr] text-white/80 text-[10px] tracking-[0.3em] font-bold">EXPLORE</div>
+        <div className="scroll-text [writing-mode:vertical-lr] text-[#22D3EE]/80 text-[10px] tracking-[0.3em] font-bold">EXPLORE</div>
         <div className="progress-track w-px h-32 bg-white/10 relative overflow-hidden">
           <div 
             className="progress-fill absolute top-0 left-0 w-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE] transition-all duration-300" 
             style={{ height: `${scrollProgress * 100}%` }}
           />
         </div>
-        <div className="section-counter text-white text-[10px] font-mono">
+        <div className="section-counter text-[#22D3EE] text-[10px]">
           {String(currentSection).padStart(2, '0')} / {String(totalSections).padStart(2, '0')}
         </div>
       </div>

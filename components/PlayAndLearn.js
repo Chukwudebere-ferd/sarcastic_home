@@ -46,7 +46,7 @@ const PlayAndLearn = () => {
             </h2>
             <p className={styles.description}>
               The Sarcastic Geeks Trybe is more than a job matching platform. 
-              It's a "Proof of Community" where building agentic systems and 
+              It&apos;s a &quot;Proof of Community&quot; where building agentic systems and 
               collaborative debugging is the vibe.
             </p>
             

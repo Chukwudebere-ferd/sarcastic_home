@@ -2,16 +2,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import styles from './Loader.module.css';
 
+const phrases = [
+  'SNEAKING INTO SERVERS...',
+  'LOCALIZING LINKEDIN...',
+  'BEZ AI IS THINKING...',
+  'GEEKING OUT...',
+  'DONE.'
+];
+
+const glitchRepeatDelays = [0.4, 1.1, 0.7, 1.5, 0.9];
+
 const Loader = ({ finishLoading }) => {
   const [text, setText] = useState('INITIALIZING...');
-  
-  const phrases = [
-    'SNEAKING INTO SERVERS...',
-    'LOCALIZING LINKEDIN...',
-    'BEZ AI IS THINKING...',
-    'GEEKING OUT...',
-    'DONE.'
-  ];
 
   useEffect(() => {
     let i = 0;
@@ -88,7 +90,7 @@ const Loader = ({ finishLoading }) => {
                 duration: 0.2, 
                 repeat: Infinity, 
                 delay: i * 0.5,
-                repeatDelay: Math.random() * 2 
+                repeatDelay: glitchRepeatDelays[i] 
               }}
               className={styles.glitchLine}
               style={{ top: `${20 * i}%` }}

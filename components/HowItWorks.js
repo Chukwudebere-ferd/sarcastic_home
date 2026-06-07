@@ -32,7 +32,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className={styles.section}>
+    <section id="roadmap" className={styles.section}>
       <div className={styles.backgroundVisual}>
         <Image 
           src="https://sarcasticgeeks.com/images/connect.jpg" 

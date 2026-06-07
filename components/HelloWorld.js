@@ -1,98 +1,93 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import styles from './HelloWorld.module.css';
 
+const avatars = [
+  'https://randomuser.me/api/portraits/men/1.jpg',
+  'https://randomuser.me/api/portraits/women/2.jpg',
+  'https://randomuser.me/api/portraits/men/3.jpg',
+  'https://randomuser.me/api/portraits/women/4.jpg',
+  'https://randomuser.me/api/portraits/men/5.jpg',
+  'https://randomuser.me/api/portraits/women/6.jpg',
+];
+
 const HelloWorld = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-
   return (
-    <section id="hello-world" ref={ref} className={styles.section}>
-      <motion.div 
-        style={{ scale, opacity }}
-        className={styles.container}
-      >
+    <section id="hello-world" className={styles.section}>
+      <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.content}>
-            <h2 className={styles.title}>Hello World <span className="serif">flips the job hunt.</span></h2>
-            <p className={styles.description}>
-              Built inside the Sarcastic Geeks Trybe, we match you to roles shaped by actual funded projects — 
-              then generate a detailed roadmap with recommended proof-of-work to get there.
-            </p>
-            <div className={styles.toolFeatures}>
-              <div className={styles.feature}>
-                <Zap size={18} className={styles.icon} />
-                <span>AI Prompting Interface</span>
-              </div>
-              <div className={styles.feature}>
-                <Zap size={18} className={styles.icon} />
-                <span>Environment Verification</span>
-              </div>
-              <div className={styles.feature}>
-                <Zap size={18} className={styles.icon} />
-                <span>Remixable Snippets</span>
+            <div className={styles.categoryTag}>
+              <span className={styles.categoryLabel}>Career Platform</span>
+              <span className={styles.newBadge}>NEW</span>
+            </div>
+            
+            <div className={styles.titleWrapper}>
+              <div className={styles.title}>
+                <span className={styles.helloText}>HELLO</span>
+                <div className={styles.worldText}>
+                  WORLD
+                  <div className={styles.masks}>
+                    <span>🎭</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(168, 85, 247, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              className={`${styles.cta} clipped-corner`}
-            >
-              Try Hello World
-            </motion.button>
+
+            <p className={styles.description}>
+              We do not do <b>&quot;apply and pray&quot;</b>, We track <b>freshly funded startups</b>, 
+              sniff out what they actually need, and our AI hands you a roadmap 
+              with proof-of-work to get that job. Your projects, challenges, and 
+              Trybe courses <b>do the talking</b> — no cover letter bs needed. Even if 
+              you are just starting out, you got this.
+            </p>
+
+            <div className={styles.socialProof}>
+              <div className={styles.avatars}>
+                {avatars.map((url, i) => (
+                  <div key={i} className={styles.avatar}>
+                    <Image src={url} alt="Member" width={40} height={40} />
+                  </div>
+                ))}
+              </div>
+              <span className={styles.joinedCount}>
+                <b>453+</b> joined the trybe.
+              </span>
+            </div>
+
+            <div className={styles.actions}>
+              <motion.button 
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={styles.ctaPrimary}
+              >
+                Join the Waitlist <ArrowRight size={18} />
+              </motion.button>
+              <motion.button 
+                whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
+                whileTap={{ scale: 0.98 }}
+                className={styles.ctaSecondary}
+              >
+                Explore Courses
+              </motion.button>
+            </div>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className={`${styles.terminal} glass`}
-          >
-            <div className={styles.terminalHeader}>
-              <div className={styles.dots}>
-                <span></span><span></span><span></span>
-              </div>
-              <div className={styles.terminalTitle}>bez-ai.sh</div>
+          <div className={styles.visualSide}>
+            {/* 3D Globe would go here - using a high-quality placeholder for now */}
+            <div className={styles.globePlaceholder}>
+              <motion.img 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                src="https://upload.wikimedia.org/wikipedia/commons/2/22/Earth_Western_Hemisphere_transparent_background.png" 
+                alt="3D Globe" 
+                style={{ width: '100%', height: 'auto', filter: 'drop-shadow(0 0 50px rgba(34, 211, 238, 0.2))' }}
+              />
             </div>
-            <div className={styles.terminalBody}>
-              <p className={styles.line}><span className={styles.prompt}>$</span> run hello-world --stack="Next.js, AI"</p>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className={styles.line}
-              >
-                <span className={styles.success}>[SUCCESS]</span> Found 12 freshly funded startups matching your stack.
-              </motion.p>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-                className={styles.line}
-              >
-                <span className={styles.info}>[AI]</span> Generating Proof-of-Work roadmap...
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className={styles.roadmap}
-              >
-                <div className={styles.roadmapItem}>1. Build Agentic Chat Interface</div>
-                <div className={styles.roadmapItem}>2. Integrate Vercel AI SDK</div>
-                <div className={styles.roadmapItem}>3. Community Review (Pending)</div>
-              </motion.div>
-            </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

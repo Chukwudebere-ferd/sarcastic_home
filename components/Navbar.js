@@ -5,24 +5,16 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`${styles.navbar} glass`}
-    >
+    <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <div className={styles.logoWrapper}>
-            <Image 
-              src="https://sarcasticgeeks.com/logo.png" 
-              alt="Sarcastic Geeks Logo" 
-              width={32} 
-              height={32}
-              className={styles.logoImage}
-            />
-          </div>
-          <span className="serif">Sarcastic Geeks</span>
+          <Image 
+            src="https://sarcasticgeeks.com/logo.png" 
+            alt="Sarcastic Geeks Logo" 
+            width={40} 
+            height={40}
+            className={styles.logoImage}
+          />
         </Link>
 
         <div className={styles.links}>
@@ -33,17 +25,14 @@ const Navbar = () => {
         </div>
 
         <motion.button 
-          whileHover={{ 
-            scale: 1.05,
-            boxShadow: "0 0 25px rgba(168, 85, 247, 0.4)"
-          }}
-          whileTap={{ scale: 0.95 }}
-          className={`${styles.cta} clipped-corner`}
+          whileHover={{ borderColor: 'var(--brand-cyan)', color: 'var(--brand-cyan)' }}
+          whileTap={{ scale: 0.98 }}
+          className={styles.accountBox}
         >
           Join Sarcastic Geeks Trybe
         </motion.button>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

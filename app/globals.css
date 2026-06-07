@@ -1,52 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Syne:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&family=Syncopate:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Syne:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 222 47% 11%; /* #0F172A - Deep Black */
+  --background: 222 47% 7%; /* #0D1117 - Deep Charcoal */
   --foreground: 210 40% 98%;
-  --card: 222 47% 11%;
+  --card: 222 47% 7%;
   --card-foreground: 210 40% 98%;
-  --popover: 222 47% 11%;
+  --popover: 222 47% 7%;
   --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
+  --primary: 191 91% 47%; /* Cyan #22D3EE */
   --primary-foreground: 222.2 47.4% 11.2%;
   --secondary: 217.2 32.6% 17.5%;
   --secondary-foreground: 210 40% 98%;
   --muted: 217.2 32.6% 17.5%;
   --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
+  --accent: 263 90% 65%; /* Soft Purple #A855F7 */
   --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --radius: 0.5rem;
+  --ring: 191 91% 47%;
+  --radius: 2rem;
 
-  /* Brand Colors (Blueprint Exact) */
+  /* Brand Colors (Exact from Screenshot) */
+  --brand-cyan: #22D3EE;
+  --brand-purple: #A855F7;
   --primary-purple: #6B21A8;
-  --electric-purple: #A855F7;
+  --deep-bg: #0D1117;
   --deep-black: #0F172A;
   --neon-cyan: #22D3EE;
   --pure-white: #FFFFFF;
+  --pure-black: var(--deep-bg);
+  --text-muted: #94A3B8;
+
+  /* Legacy aliases kept for cached section modules */
+  --terminal-green: var(--brand-cyan);
+  --terminal-orange: var(--brand-purple);
+  --terminal-pink: #F472B6;
   
   /* UI Surface Colors */
-  --glass-surface: rgba(15, 23, 42, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-surface: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
   
   /* Typography */
-  --font-serif: 'Instrument Serif', serif;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Syne', sans-serif;
   --font-ui: 'Space Grotesk', sans-serif;
-  --font-wide: 'Syncopate', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+  --font-mono: 'Space Grotesk', sans-serif;
   
   /* Effects */
-  --glass-blur: blur(16px);
-  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -59,9 +67,12 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--deep-black);
+  background:
+    radial-gradient(circle at 18% 8%, rgba(168, 85, 247, 0.22), transparent 30rem),
+    radial-gradient(circle at 88% 18%, rgba(34, 211, 238, 0.14), transparent 26rem),
+    var(--deep-bg);
   color: var(--pure-white);
-  font-family: var(--font-ui);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -82,12 +93,6 @@ h1, h2, h3, h4 {
   font-style: italic;
 }
 
-.wide {
-  font-family: var(--font-wide);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -101,26 +106,37 @@ button {
   font-family: var(--font-ui);
 }
 
-/* Custom Utilities for SaaS Noir */
+/* Custom Utilities for Sarcastic Geeks UI */
 .glass {
   background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
 }
 
-.clipped-corner {
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 12px) 0, 
-    100% 12px, 
-    100% 100%, 
-    12px 100%, 
-    0 calc(100% - 12px)
-  );
+.pill-button {
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.neon-glow {
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+.primary-button {
+  background: var(--pure-white);
+  color: #000;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--pure-white);
+}
+
+.cyan-text {
+  color: var(--brand-cyan);
 }
 
 main {

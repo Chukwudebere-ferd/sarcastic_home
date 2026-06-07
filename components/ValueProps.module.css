@@ -1,6 +1,7 @@
 .section {
   padding: 10rem 2rem;
-  background: var(--deep-black);
+  background: var(--pure-black);
+  border-top: 1px solid var(--border);
 }
 
 .container {
@@ -9,13 +10,14 @@
 }
 
 .header {
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
   text-align: center;
 }
 
 .title {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--pure-white);
+  color: var(--terminal-pink);
+  text-transform: uppercase;
 }
 
 .grid {
@@ -32,24 +34,17 @@
   justify-content: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  border: 1px solid var(--electric-purple) !important;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
+  background: rgba(227, 60, 199, 0.02);
+  border: 1px solid var(--terminal-pink) !important;
+  box-shadow: 0 0 30px rgba(227, 60, 199, 0.1);
 }
 
 .coinContainer {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 3rem;
   perspective: 1000px;
-}
-
-.coin {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
 }
 
 .coinFront, .coinBack {
@@ -57,47 +52,35 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #B45309 100%);
+  background: var(--terminal-pink);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: 5rem;
+  font-family: var(--font-mono);
+  font-size: 4rem;
   font-weight: 800;
-  color: #78350F;
-  border: 4px solid #FDE68A;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  color: var(--pure-black);
+  border: 4px solid var(--pure-white);
 }
 
 .coinBack {
   transform: rotateY(180deg);
 }
 
-.coinShadow {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.3);
-  filter: blur(10px);
-  border-radius: 50%;
-}
-
 .mainTitle {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: var(--pure-white);
+  text-transform: uppercase;
 }
 
 .mainDescription {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: var(--foreground);
-  opacity: 0.8;
+  color: var(--pure-white);
+  opacity: 0.7;
   max-width: 400px;
 }
 
@@ -112,29 +95,37 @@
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  transition: var(--transition);
+  background: rgba(227, 60, 199, 0.02);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.benefitCard:hover {
+  border-color: var(--terminal-pink);
+  background: rgba(227, 60, 199, 0.05);
 }
 
 .benefitIcon {
-  color: var(--neon-cyan);
-  background: rgba(34, 211, 238, 0.1);
+  color: var(--terminal-pink);
+  background: rgba(227, 60, 199, 0.1);
   padding: 1rem;
-  border-radius: 0.75rem;
+  border-radius: 2px;
   flex-shrink: 0;
 }
 
 .benefitTitle {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.25rem;
   color: var(--pure-white);
+  text-transform: uppercase;
 }
 
 .benefitDescription {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--foreground);
-  opacity: 0.85;
+  color: var(--pure-white);
+  opacity: 0.6;
 }
 
 @media (max-width: 968px) {
